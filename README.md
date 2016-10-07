@@ -1,4 +1,4 @@
-# Creating a automation workflow using Gulp.js
+# Creating an automation workflow using Gulp.js
 To make it simple, in this repository I'm only automating JavaScript.
 
 ## Separating tasks.
