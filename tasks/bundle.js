@@ -18,20 +18,20 @@ const
       .pipe(source('bundle.js'))
       .pipe(buffer())
       .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(uglify())
+        .pipe(uglify())
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./public/build/javascripts/'))
-      .pipe(reload({ stream: false }));
+      .pipe(gulp.dest('../build/public/javascripts/'))
+      .pipe(reload({ stream: true }));
   };
 
 export default function () {
   return () => {
     const
-      main = 'public/src/javascripts/main.js',
+      main = 'public/javascripts/main.js',
       bundler = watchify(
         browserify(main, { debug: true })
-        .transform('babelify', { presets: ['es2015'] })
-        .transform('pugify')
+          .transform('babelify', { presets: ['es2015'] })
+          .transform('pugify')
       );
 
     bundle_js( bundler );
